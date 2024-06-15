@@ -33,8 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 function isValidUrl(urlString) {
   try {
-      new URL(urlString);
-      return true;
+      const url = new URL(urlString);
+      return url.protocol === 'http:' || url.protocol === 'https:';
   } catch (err) {
       return false;
   }
